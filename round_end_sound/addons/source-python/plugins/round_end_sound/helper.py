@@ -7,7 +7,7 @@ from filters.players import PlayerIter
 from players.helpers import edict_from_userid
 
 
-def play_sound(userid, sound):
+def play_sound(userid, sound) -> None:
     client_command(userid, f"play {sound}")
 
 
@@ -15,5 +15,5 @@ def get_userids():
     yield from PlayerIter.iterator()
 
 
-def client_command(userid, cmd):
+def client_command(userid, cmd) -> None:
     engine_server.client_command(edict_from_userid(userid), cmd)
