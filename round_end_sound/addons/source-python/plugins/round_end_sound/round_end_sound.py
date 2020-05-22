@@ -14,18 +14,18 @@ from .helper import play_sound, get_userids
 from .sounds import DOWNLOAD_TABLE, SOUNDS
 
 
-def load():
+def load() -> None:
     set_download()
 
 
-def set_download():
+def set_download() -> None:
     downloadable = Downloadables()
     for sound in DOWNLOAD_TABLE:
         downloadable.add(sound)
 
 
 @Event("round_end")
-def round_end(args):
+def round_end(args) -> None:
     for userid in get_userids():
         sound = random.choice(SOUNDS)
         play_sound(userid, sound)
